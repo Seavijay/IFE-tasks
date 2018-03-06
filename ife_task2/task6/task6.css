@@ -1,0 +1,38 @@
+textarea{
+	resize:none;
+	height:100px;
+	width:200px;
+}
+input[type="text"] {
+	margin-left: 10px;
+}
+
+button {
+	cursor: pointer;
+	border: 1px solid #eee;
+}
+
+button:hover {
+	background: rgb(90, 176, 247);
+	border: 1px solid #eee;
+	color: #fff;
+}
+
+
+container div {
+	background: rgb(57, 207, 218);
+	margin-left: 2px;
+	list-style: none;
+	height: 40px;
+	display: inline-block;
+	position: relative;
+	bottom: 0;
+	padding:2px, 10px;
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
+}
+select {
+	background :  #fff;
+	color : rgb(57, 207, 218);
+}

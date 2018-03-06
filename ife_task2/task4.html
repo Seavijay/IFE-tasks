@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta charset = 'UTF-8'>
+        <title>task 4</title>
+        <style media='screen'>
+                div>span {
+                    color: rgb(0, 0, 0);
+                    background-color: rgb(124, 172, 238);
+                    margin-left: 2px;
+                }
+
+            </style>
+    </head>
+    <body>
+
+        <h3 style='color:rgb(83, 133, 8);'>there is a array</h3>
+        <p style='color:rgb(240, 135, 15);'>please input a number: <input id = 'input-num' type = 'text'></p>
+        
+        <div class = 'button'>
+            <button id = 'left-in'>left_in</button>
+            <button id = 'right-in'>right_in</button>
+            <button id = 'left-out'>left_out</button>
+            <button id = 'right-out'>right_out</button>
+        </div>
+
+        <div id = 'list' style = 'width:600px; height:300px;'>
+            <span>10</span>
+            <span>3</span>
+            <span>7</span>
+            <span>12</span>
+            <span>11</span>
+            <span>30</span>
+        </div>
+        
+
+        <script type = 'text/javascript'>
+            let list = document.querySelector('#list'),
+                inputNum = document.querySelector('#input-num')
+
+            //verify that the format of the num which was input is correct.
+
+            function verify(inputNum){
+                let res = false
+                switch(true){
+                    case inputNum.value === '' :
+                        alert('please input a number!')
+                        break
+                    case isNaN(inputNum.value) :
+                        alert('the format is not correct!')
+                        break
+                    default :
+                        res = true
+                }
+                return res
+            }
+
+            function leftIn(){
+                let input = verify(inputNum)
+                if(input === true && list.length < 60){
+                    let insert = document.createElement('span')
+                    insert.innerText = inputNum.value
+                    list.insertBefore(insert, list.firstElementChild)
+                }
+            }
+
+            function rightIn(){
+                let input = verify(inputNum)
+                if(input === true){
+                    let insert = document.createElement('span')
+                    insert.innerText = inputNum.value
+                    list.insertBefore(insert, null)
+                }
+            }
+
+            function leftOut(){
+                alert(list.firstElementChild.innerText)
+                list.firstElementChild.remove()
+            }
+            
+            function rightOut(){
+                alert(list.lastElementChild.innerText)
+                list.lastElementChild.remove()
+            }
+            
+            function init() {
+            let btnLeftIn = document.querySelector('#left-in')
+            let btnRightIn = document.querySelector('#right-in')
+            let btnLeftOut = document.querySelector('#left-out')
+            let btnRightOut = document.querySelector('#right-out')
+            btnLeftIn.onclick = leftIn
+            btnRightIn.onclick = rightIn
+            btnLeftOut.onclick = leftOut
+            btnRightOut.onclick = rightOut
+            }
+
+            init();
+
+            list.addEventListener('click', function(e) {
+            if (event.target.nodeName.toLowerCase() === 'span') {
+                list.removeChild(event.target)
+                }
+            })
+        </script>
+        <script src = 'js/flotr2.min.js'></script>
+    </body>
+</html>
